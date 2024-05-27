@@ -1,0 +1,392 @@
+[
+  {
+    "name": "愚者",
+    "meaning": "活在当下，或随遇而安，如果每天都很重视，便能回味无穷",
+    "reverseMeaning": "时机的关键所在，表示还不是时机，也代表没能把握住时机，或太固执于过去的计划，过分依赖他人的建议"
+  },
+  {
+    "name": "魔术师",
+    "meaning": "富有外交手腕，但需要坚定的意志和正当的目的才能把它发挥出来。成功可以获得巨大收获；但失败的话...",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "女祭司",
+    "meaning": "宁静、直觉、含蓄、谨慎，被动接受以得到发展",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "皇后",
+    "meaning": "具有魅力、优雅和毫无保留的爱，有创造力和聪明才智",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "皇帝",
+    "meaning": "坚强的意志和稳固的力量，通过努力和自律达到成功",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "教皇",
+    "meaning": "信心十足，不疑惑，对事情有正确的理解力，寻找新的方法，可能感到阻力，但事实会证明一切",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "恋人",
+    "meaning": "道德、美学、更深层次的精神和肉体上的渴望，暗示一段新的关系，或已有关系的新形态，也暗示沉醉于爱河",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "战车",
+    "meaning": "成功、有才能、有效率，抛开过去的束缚。如果牌阵总体结果不好，应该考虑有哪方面过于激烈",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "力量",
+    "meaning": "代表个人魅力与追求成功的决心，象征爱与坚强的意志力，可驾驭不易控制的能量，拥有优势力量",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "隐士",
+    "meaning": "代表有所坚持，有目标、深沉且专注",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "命运之轮",
+    "meaning": "代表无论喜欢与否，改变终将会到来",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "正义",
+    "meaning": "正直、公平、诚实、纪律，只要对自己诚实，未来能得到改善；或代表成功解决某个争议",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "倒吊人",
+    "meaning": "代表有偿的牺牲，代表任性极限、解决问题、有人文特质，代表一段反省的时光、内在的平和宁静，也代表在不同角度，会有不同的感受",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "死神",
+    "meaning": "代表顺从变化，放下曾经紧抓不放的事物，会得到新生；同时意味接受死亡，便会活得更充实",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "节制",
+    "meaning": "代表节制，调试热情，不致过分越轨，还代表运用知识和理解力来条件行为的能力",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "恶魔",
+    "meaning": "代表感官的魅力和热情的表达，接受了糟糕的状态而不愿改变",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "塔",
+    "meaning": "表示能接受挫折，勇敢克服困难，或许感到深深的痛苦与失望，但都是为了自己能有所成长",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星星",
+    "meaning": "代表着乐观与无限的希望，对自己充满信心，将迎来一段心平气和的时光",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "月亮",
+    "meaning": "意味着敏感、体谅、感同身受，代表对圆满的不安，越幸福的时候，越担心不幸会到来",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "太阳",
+    "meaning": "代表着具有激情、人际和谐以及美好名声等正面的特质，意味着有创造性的事物，可以在生活中感到快乐、爱与价值",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "审判",
+    "meaning": "代表具有超越自我、发觉无限潜力的特质，了解生命的相连，才能了解自己的精神意志、知道如何表达他",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "世界",
+    "meaning": "意味着报酬优厚，收获巨大",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖1",
+    "meaning": "财富与事业的成功，终生的朋友和宁静的心境",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖2",
+    "meaning": "失望，来自朋友或生意伙伴的反对",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖3",
+    "meaning": "不止一次的婚姻",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖4",
+    "meaning": "谨防一个项目的失败，虚假或不可靠的朋友起到了破坏作用",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖5",
+    "meaning": "内心不同想法之间的争斗，你的脑袋里塞满了各种各样的想法",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖6",
+    "meaning": "有利可图的合伙",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖7",
+    "meaning": "好运与幸福，但应提防某个异性",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖8",
+    "meaning": "贪婪，可能花掉不属于自己的钱",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖9",
+    "meaning": "和朋友争辩，固执的争吵",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖10",
+    "meaning": "意想不到的好运，长途旅行，但可能会失去一个亲密的朋友",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖侍从",
+    "meaning": "一个诚挚但缺乏耐心的朋友，善意的奉承",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖骑士",
+    "meaning": "幸运地得到亲人或陌生人的帮助",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖王后",
+    "meaning": "一个亲切善良的人，但爱发脾气",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "权杖国王",
+    "meaning": "一个诚挚的男人，慷慨忠实",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯1",
+    "meaning": "家庭生活之幸福，别的牌可给予其更多内涵，如宾客来访、宴席、吵架",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯2",
+    "meaning": "成功和好运，但细心、专心会是获取它们的必要条件",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯3",
+    "meaning": "切忌轻率、鲁莽，它们会给事业带来厄运",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯4",
+    "meaning": "不易说服的人，未婚的男子或女子，婚姻推迟",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯5",
+    "meaning": "无根据的嫉妒，缺乏果断误了大事，且逃避责任",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯6",
+    "meaning": "轻信，你容易被欺骗，特别是被不值得信任的同伴欺骗",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯7",
+    "meaning": "善变或食言，提防过分乐观的朋友和无主见的熟人",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯8",
+    "meaning": "令人愉快的公司或友谊，聚合或有计划的庆祝活动",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯9",
+    "meaning": "梦里与愿望实现，好运与财富",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯10",
+    "meaning": "家庭幸福，预料之外的好消息",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯侍从",
+    "meaning": "一个永远的亲密朋友，或许是分别很久的童年朋友或初恋情人",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯骑士",
+    "meaning": "假朋友，来自远方陌生的人，勾引者，应当把握当前命运",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯王后",
+    "meaning": "忠诚、钟情的女人，温柔大方，惹人怜爱",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "圣杯国王",
+    "meaning": "诚实、善良的男子，但容易草率地做出决定，并不可依赖",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑1",
+    "meaning": "不幸，坏消息，充满嫉妒的情感",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑2",
+    "meaning": "变化，分离",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑3",
+    "meaning": "一次旅行，爱情或婚姻的不幸",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑4",
+    "meaning": "疾病，经济困难，嫉妒，各种小灾难拖延工作的进度",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑5",
+    "meaning": "克服困难，获得生意成功或者和谐的伙伴",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑6",
+    "meaning": "只要有坚韧不拔的毅力，就能完成计划",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑7",
+    "meaning": "与朋友争吵，招来许多麻烦",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑8",
+    "meaning": "谨慎，看似朋友的人可能成为敌人",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑9",
+    "meaning": "疾病、灾难、或各种不幸",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑10",
+    "meaning": "悲伤，否定好兆头",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑侍从",
+    "meaning": "嫉妒或者懒惰的人，事业上的障碍，或许是骗子",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑骑士",
+    "meaning": "传奇中的豪爽人物，喜好奢侈放纵，但勇敢、有创业精神",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑王后",
+    "meaning": "奸诈，不忠，一个寡妇或被抛弃的人",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "宝剑国王",
+    "meaning": "野心勃勃、妄想驾驭一切",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币1",
+    "meaning": "重要的消息，或珍贵的礼物",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币2",
+    "meaning": "热恋，但会遭到朋友反对",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币3",
+    "meaning": "争吵，官司，或家庭纠纷",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币4",
+    "meaning": "不幸或秘密的背叛，来自不忠的朋友，或家庭纠纷",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币5",
+    "meaning": "意外的消息，生意成功、愿望实现、或美满的婚姻",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币6",
+    "meaning": "早婚，但也会早早结束，第二次婚姻也无好兆头",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币7",
+    "meaning": "谎言，谣言，恶意的批评，运气糟透的赌徒",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币8",
+    "meaning": "晚年婚姻，或一次旅行，可能带来结合",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币9",
+    "meaning": "强烈的旅行愿望，嗜好冒险，渴望生命得到改变",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币10",
+    "meaning": "把钱作为目标，但并不一定会如愿以偿",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币侍从",
+    "meaning": "一个自私、嫉妒的亲戚，或一个带来坏消息的使者",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币骑士",
+    "meaning": "一个有耐心、有恒心的男人，发明家或科学家",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币王后",
+    "meaning": "卖弄风情的女人，乐于干涉别人的事情，诽谤和谣言",
+    "reverseMeaning": ""
+  },
+  {
+    "name": "星币国王",
+    "meaning": "一个脾气粗暴的男人，固执而充满复仇心，与他对抗会招来危险",
+    "reverseMeaning": ""
+  }
+]

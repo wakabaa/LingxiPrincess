@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--suppress ALL -->
+<mapper namespace="com.gbf.kukuru.mapper.gbf.UniteAndFightInfoMapper">
+
+    <select id="selectCurrentOrNext" resultType="com.gbf.kukuru.entity.UniteAndFightInfo">
+        select *
+        from unite_and_fight_info
+        where (now() between begin_time and end_time)
+           or begin_time > now()
+        order by begin_time
+        limit 1
+    </select>
+
+</mapper>

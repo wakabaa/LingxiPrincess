@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--suppress ALL -->
+<mapper namespace="com.gbf.kukuru.mapper.gbf.GbfGuildMemberMapper">
+
+    <select id="selectListByQqGroupId" resultType="com.gbf.kukuru.entity.GbfGuildMember">
+        select g.*
+        from gbf_guild_member g
+                 left join gbf_member_and_qq_group_bind_info b on g.id = b.gbf_id
+        where b.group_id = #{groupId}
+    </select>
+
+    <update id="updateCase">
+        update gbf_guild_member
+        set ${updateSql}
+        where id in ${ids}
+    </update>
+
+    <insert id="insertBatch">
+        insert into gbf_guild_member (`id`, `guild_id`, `nick_name`, `user_rank`, `position`)
+        values ${insertSql}
+    </insert>
+
+</mapper>

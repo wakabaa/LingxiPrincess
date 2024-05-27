@@ -1,0 +1,22 @@
+[
+  {
+    "position": "第一张牌",
+    "meaning": "代表过去，即已经发生的事",
+    "supportReverse": true
+  },
+  {
+    "position": "第二张牌",
+    "meaning": "代表问题导致的局面",
+    "supportReverse": true
+  },
+  {
+    "position": "第三张牌",
+    "meaning": "表示困难可能有的解决方法",
+    "supportReverse": true
+  },
+  {
+    "position": "切牌",
+    "meaning": "表示问卜者的主观想法",
+    "supportReverse": true
+  }
+]

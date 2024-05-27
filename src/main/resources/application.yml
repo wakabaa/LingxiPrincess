@@ -1,0 +1,76 @@
+spring:
+  #机器人配置
+  bot:
+    plugin-list: # 配置插件列表（有序），如果插件返回0，继续执行剩余插件，如果插件返回1，终止剩余插件执行
+      # 指令文本触发
+      - com.gbf.kukuru.plugin.LogPlugin # 日志插件
+      - com.gbf.kukuru.plugin.CommandHintPlugin # 指令提示
+      - com.gbf.kukuru.plugin.SpiritPlugin # 日志插件
+      # 非指令文本触发
+  #数据源配置
+  datasource:
+    name: kukuruDB
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://1.12.243.205:3306/kukuru_bot?characterEncoding=utf-8
+    username: kukuru
+    password: vPNtvIhO_^eN
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  #Redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1ms
+
+mybatis-plus:
+  #默认扫描mapper.xml的目录
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+server:
+  port: 8081
+
+logging:
+  file:
+    name: kukuru_bot.log
+    max-size: 1GB
+    max-history: 7
+  level:
+    root: info
+#B站相关功能配置
+bilibili:
+  image-store-path: /tmp/image
+#直播监听相关功能配置
+live:
+  fake-user-agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" # 伪造的UA信息
+  enable-live-listener: true # 是否开启直播监听
+  total-listening-interval: 12 # 直播状态总监听时间间隔(秒)
+  min-listening-interval: 500 # 最小监听时间间隔(毫秒)
+  max-listening-amount: 30 # 每个群的监听上限
+  enable-bilibili: true # 是否开启B站直播监听
+  enable-cc: true # 是否开启CC直播监听
+#客户端守护相关配置
+client:
+  enable-daemon: false
+  port-start: 9000
+  max-fail-count: 3
+  login-name: admin
+  login-password: YdhTb86T
