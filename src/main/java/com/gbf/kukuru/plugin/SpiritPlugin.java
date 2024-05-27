@@ -22,12 +22,14 @@ import onebot.OnebotEvent;
 @Component
 public class SpiritPlugin extends BotPlugin {
 
+	String spiritApi = "https://xyq.gm.163.com/cgi-bin/csa/csa_sprite.py?act=ask&question={{question}}&product_name=xyq";
+	
     @Override
     public int onGroupMessage(@NotNull Bot bot, @NotNull OnebotEvent.GroupMessageEvent event) {
         String msg = event.getRawMessage();
         long userId = event.getUserId();
         long groupId = event.getGroupId();
-        String spiritApi = "https://xyq.gm.163.com/cgi-bin/csa/csa_sprite.py?act=ask&question={{question}}&product_name=xyq";
+        
 
         if (msg.startsWith(CommandConstant.COMMAND_DREAM_JOURNEY_TO_THE_WEST)) {
             String question = msg.replace(CommandConstant.COMMAND_DREAM_JOURNEY_TO_THE_WEST, "").trim();
@@ -35,7 +37,6 @@ public class SpiritPlugin extends BotPlugin {
                 String encodedQuestion = URLEncoder.encode(question, StandardCharsets.UTF_8.toString());
                 String apiUrl = spiritApi.replace("{{question}}", encodedQuestion);
                 URL url = new URL(apiUrl);
-
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 connection.setConnectTimeout(5000);
@@ -60,6 +61,40 @@ public class SpiritPlugin extends BotPlugin {
                 e.printStackTrace();
             }
             return MESSAGE_BLOCK;
+        }
+        return MESSAGE_IGNORE;
+    }
+    
+    @Override
+    public int onPrivateMessage(@NotNull Bot bot, @NotNull OnebotEvent.PrivateMessageEvent event) {
+        String msg = event.getRawMessage();
+        long userId = event.getUserId();
+        try {
+            String encodedQuestion = URLEncoder.encode(msg, StandardCharsets.UTF_8.toString());
+            String apiUrl = spiritApi.replace("{{question}}", encodedQuestion);
+            URL url = new URL(apiUrl);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
+            connection.connect();
+
+            int responseCode = connection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                StringBuilder response = new StringBuilder();
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                }
+                String answer = formatResponse(cleanHtml(response.toString()));
+                bot.sendPrivateMsg(userId, Msg.builder().text(answer), false);
+            } else {
+                throw new Exception("HTTP GET request failed with response code: " + responseCode);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return MESSAGE_IGNORE;
     }
