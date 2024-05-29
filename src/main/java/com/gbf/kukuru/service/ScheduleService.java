@@ -65,7 +65,7 @@ public class ScheduleService {
         }
     }
     
-    @Scheduled(cron = "0 00 13 ? * SUN")
+    @Scheduled(cron = "0 00 14 ? * SUN")
     public void wenyunmoxiang() throws InterruptedException {
         if (isNthWeekOfMonth(2)) {
             sendGroupMessage("文韵墨香活动即将开始。");
