@@ -24,4 +24,8 @@ public interface CommandConstant {
     String COMMAND_CAT_IMAGE = "猫图";
     String COMMAND_YANGKUKU_IMAGE = "kk图";
     String COMMAND_DREAM_JOURNEY_TO_THE_WEST = "梦幻精灵";
+    String COMMAND_GET_DAY_EVENTS = "本日周活动";
+    String COMMAND_GET_WEEK_EVENTS = "本周活动";
+    String COMMAND_GET_MONTH_EVENTS = "本月活动";
+    String COMMAND_GET_YEAR_EVENTS = "本年活动";
 }

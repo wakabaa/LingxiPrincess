@@ -5,15 +5,16 @@ spring:
       # 指令文本触发
       - com.gbf.kukuru.plugin.LogPlugin # 日志插件
       - com.gbf.kukuru.plugin.CommandHintPlugin # 指令提示
-      - com.gbf.kukuru.plugin.SpiritPlugin # 日志插件
+      - com.gbf.kukuru.plugin.SpiritPlugin # 梦幻精灵插件
+      - com.gbf.kukuru.plugin.QueryEventsPlugin # 活动查询插件
       # 非指令文本触发
   #数据源配置
   datasource:
     name: kukuruDB
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://1.12.243.205:3306/kukuru_bot?characterEncoding=utf-8
-    username: kukuru
-    password: vPNtvIhO_^eN
+    url: jdbc:mysql://localhost:3306/westward_journey_fantasy?characterEncoding=utf-8
+    username: root
+    password: root
     type: com.alibaba.druid.pool.DruidDataSource
     filters: stat
     maxActive: 20

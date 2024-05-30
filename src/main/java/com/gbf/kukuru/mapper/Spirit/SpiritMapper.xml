@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--suppress ALL -->
+<mapper namespace="com.gbf.kukuru.mapper.Spirit.SpiritMapper">
+
+    <select id="selectSpiritEvent" resultType="com.gbf.kukuru.entity.SpiritEventEntity">
+		SELECT * FROM activities 
+		WHERE 
+		    type = 1 
+		    AND FIND_IN_SET(DAYOFWEEK(CURDATE()) - 1, day_of_week) > 0
+		UNION
+		SELECT * FROM activities 
+		WHERE 
+		    type = 3 
+		UNION
+		SELECT
+		    * 
+		FROM
+		    activities 
+		WHERE
+		    type = 2 
+		    AND week_of_month = CEILING( 
+		        ( 
+		            DAY ( 
+		                ( 
+		                    SELECT
+		                        DATE_ADD( 
+		                            CURRENT_DATE
+		                            , INTERVAL (7 - DAYOFWEEK(CURRENT_DATE)) DAY
+		                        )
+		                )
+		            ) + WEEKDAY( 
+		                ( 
+		                    SELECT
+		                        DATE_ADD( 
+		                            CURRENT_DATE
+		                            , INTERVAL (7 - DAYOFWEEK(CURRENT_DATE)) DAY
+		                        )
+		                ) - INTERVAL DAY ( 
+		                    ( 
+		                        SELECT
+		                            DATE_ADD( 
+		                                CURRENT_DATE
+		                                , INTERVAL (7 - DAYOFWEEK(CURRENT_DATE)) DAY
+		                            )
+		                    )
+		                ) - 1 DAY
+		            )
+		        ) / 7
+		    )
+		    UNION
+		SELECT * FROM activities 
+		WHERE 
+		    type = 4 
+		    AND FIND_IN_SET((SELECT WEEK(CURRENT_DATE) - WEEK(DATE_SUB(CURRENT_DATE, INTERVAL DAYOFMONTH(CURRENT_DATE) - 1 DAY)) + 1 AS week_of_month), day_of_week) > 0
+    </select>
+</mapper>
