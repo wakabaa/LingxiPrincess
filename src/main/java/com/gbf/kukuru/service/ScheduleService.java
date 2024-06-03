@@ -54,42 +54,42 @@ public class ScheduleService {
 
 	@Scheduled(cron = "0 28 15 ? * SAT")
 	public void qiannian1530() throws InterruptedException {
-		Msg message = Msg.builder().text("千年魔灵和万年魔灵即将现身开始。")
+		Msg message = Msg.builder().text("冲破符咒封印的妖魔怒了更厉害的千年魔灵和万年魔灵即将来到，各路英雄速速前往齐心协力共除妖魔!")
 				.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/106.gif"));
 		sendGroupMessage(message);
 	}
 
 	@Scheduled(cron = "0 58 15 ? * SAT")
 	public void qiannian1600() throws InterruptedException {
-		Msg message = Msg.builder().text("千年魔灵和万年魔灵即将现身开始。")
+		Msg message = Msg.builder().text("冲破符咒封印的妖魔怒了更厉害的千年魔灵和万年魔灵即将来到，各路英雄速速前往齐心协力共除妖魔!")
 				.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/106.gif"));
 		sendGroupMessage(message);
 	}
 
 	@Scheduled(cron = "0 28 16 ? * SAT")
 	public void qiannian1630() throws InterruptedException {
-		Msg message = Msg.builder().text("千年魔灵和万年魔灵即将现身开始。")
+		Msg message = Msg.builder().text("冲破符咒封印的妖魔怒了更厉害的千年魔灵和万年魔灵即将来到，各路英雄速速前往齐心协力共除妖魔!")
 				.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/106.gif"));
 		sendGroupMessage(message);
 	}
 
 	@Scheduled(cron = "0 38 16 ? * SAT")
 	public void qiannian1640() throws InterruptedException {
-		Msg message = Msg.builder().text("千年魔灵和万年魔灵即将现身开始。")
+		Msg message = Msg.builder().text("冲破符咒封印的妖魔怒了更厉害的千年魔灵和万年魔灵即将来到，各路英雄速速前往齐心协力共除妖魔!")
 				.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/106.gif"));
 		sendGroupMessage(message);
 	}
 
 	@Scheduled(cron = "0 48 16 ? * SAT")
 	public void qiannian1650() throws InterruptedException {
-		Msg message = Msg.builder().text("千年魔灵和万年魔灵即将现身开始。")
+		Msg message = Msg.builder().text("冲破符咒封印的妖魔怒了更厉害的千年魔灵和万年魔灵即将来到，各路英雄速速前往齐心协力共除妖魔!")
 				.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/106.gif"));
 		sendGroupMessage(message);
 	}
 
 	@Scheduled(cron = "0 58 16 ? * SAT")
 	public void qiannian1700() throws InterruptedException {
-		Msg message = Msg.builder().text("千年魔灵和万年魔灵即将现身开始。")
+		Msg message = Msg.builder().text("妖魔已经在做最后的挣扎，最后一批千年魔灵和万年灵即将来到，各路英雄速速前往齐心协力共除妖魔!")
 				.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/106.gif"));
 		sendGroupMessage(message);
 	}
@@ -99,6 +99,15 @@ public class ScheduleService {
 		if (isNthWeekOfMonth(1)) {
 			Msg message = Msg.builder().text("门派闯关活动即将开始。")
 					.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/107.gif"));
+			sendGroupMessage(message);
+		}
+	}
+	
+	@Scheduled(cron = "0 00 16 ? * SUN")
+	public void menpaichuangguan1600() throws InterruptedException {
+		if (isNthWeekOfMonth(1)) {
+			Msg message = Msg.builder().text("活动已经过半，少侠一定已经收获不少二药了吧。记得使用第二颗回梦丹")
+					.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/47.gif"));
 			sendGroupMessage(message);
 		}
 	}
@@ -117,6 +126,15 @@ public class ScheduleService {
 		if (isNthWeekOfMonth(2)) {
 			Msg message = Msg.builder().text("文韵墨香活动即将开始。")
 					.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/42.gif"));
+			sendGroupMessage(message);
+		}
+	}
+	
+	@Scheduled(cron = "0 00 16 ? * SUN")
+	public void wenyunmoxiang1600() throws InterruptedException {
+		if (isNthWeekOfMonth(2)) {
+			Msg message = Msg.builder().text("活动已经过半，少侠包裹里一定是空空的吧。记得使用第二颗回梦丹")
+					.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/47.gif"));
 			sendGroupMessage(message);
 		}
 	}

@@ -28,4 +28,6 @@ public interface CommandConstant {
     String COMMAND_GET_WEEK_EVENTS = "本周活动";
     String COMMAND_GET_MONTH_EVENTS = "本月活动";
     String COMMAND_GET_YEAR_EVENTS = "本年活动";
+    String COMMAND_GET_JEWELRY_PROCESSING = "宝石合成";
+    String COMMAND_GET_STAR_JEWELRY_PROCESSING = "星辉石合成";
 }

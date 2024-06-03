@@ -6,6 +6,7 @@ spring:
       - com.gbf.kukuru.plugin.LogPlugin # 日志插件
       - com.gbf.kukuru.plugin.CommandHintPlugin # 指令提示
       - com.gbf.kukuru.plugin.SpiritPlugin # 梦幻精灵插件
+      - com.gbf.kukuru.plugin.JewelryPlugin # 活动查询插件
       - com.gbf.kukuru.plugin.QueryEventsPlugin # 活动查询插件
       # 非指令文本触发
   #数据源配置
