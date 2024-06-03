@@ -1,5 +1,6 @@
 package com.gbf.kukuru.service;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
 
@@ -29,6 +30,10 @@ public class ScheduleService {
 	@Resource
 	private BlockQqGroupServiceImpl blockQqGroupService;
 
+    private static final LocalDate INITIAL_REFRESH_DATE = LocalDate.of(2024, 6, 3);
+    
+    private static final int REFRESH_INTERVAL_DAYS = 4; // 刷新间隔天数
+    
 	private void sendGroupMessage(Msg message) throws InterruptedException {
 		List<Long> groupIdList = sendMsgUtils.getGroupList();
 		if (groupIdList != null && !groupIdList.isEmpty()) {
@@ -43,7 +48,15 @@ public class ScheduleService {
 		int weekOfMonth = calendar.get(Calendar.WEEK_OF_MONTH);
 		return weekOfMonth == n;
 	}
-
+	
+	@Scheduled(cron = "0 0 20 * * *") // 每天晚上8点触发
+    public void remindUsers() throws InterruptedException {
+        LocalDate currentDate = LocalDate.now();
+        long daysToNextRefresh = calculateDaysToNextRefresh(currentDate);
+        Msg reminderMessage = generateReminderMessage(daysToNextRefresh);
+        sendGroupMessage(reminderMessage);
+    }
+	
 	@Scheduled(cron = "0 30 14 ? * SAT")
 	public void xiangyaofumo() throws InterruptedException {
 
@@ -193,5 +206,26 @@ public class ScheduleService {
 		Msg message = Msg.builder().text("春色满园活动即将开始。")
 				.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/42.gif"));
 		sendGroupMessage(message);
+	}
+	
+    public long calculateDaysToNextRefresh(LocalDate currentDate) {
+        long daysSinceInitialRefresh = currentDate.toEpochDay() - INITIAL_REFRESH_DATE.toEpochDay();
+        return REFRESH_INTERVAL_DAYS - (daysSinceInitialRefresh % REFRESH_INTERVAL_DAYS);
+    }
+    
+	public Msg generateReminderMessage(long daysToNextRefresh) {
+		if (daysToNextRefresh == REFRESH_INTERVAL_DAYS) {
+			return Msg.builder().text("副本已经刷新，少侠这周一定能拿到心仪的金砖和附魔宝珠把")
+					.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/50.gif"));
+		} else {
+			// 根据剩余天数定制消息内容
+			if (daysToNextRefresh == 1) {
+				return Msg.builder().text("副本还差1天刷新了，记得做好准备！")
+						.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/51.gif"));
+			} else {
+				return Msg.builder().text(String.format("副本还差%d天刷新了，还有些时间可以利用！", daysToNextRefresh))
+						.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/99.gif"));
+			}
+		}
 	}
 }

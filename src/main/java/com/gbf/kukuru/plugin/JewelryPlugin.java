@@ -17,6 +17,8 @@ import onebot.OnebotEvent;
 @Component
 public class JewelryPlugin extends BotPlugin {
 
+	private static final double EXCHANGE_RATE = 209.0 / 3000.0;
+	
 	@Override
 	public int onGroupMessage(@NotNull Bot bot, @NotNull OnebotEvent.GroupMessageEvent event) {
 		String msg = event.getRawMessage();
@@ -51,7 +53,12 @@ public class JewelryPlugin extends BotPlugin {
 
 				// 计算总价格
 				double totalCost = calculateTotalCost(targetLevel, unitPrice);
-				String result = "合成一个" + targetLevel + "级宝石的总价格是: " + totalCost;
+				
+				// 计算总价格对应的人民币
+	            double totalCostRMB = totalCost * EXCHANGE_RATE;
+	            
+				String result = String.format("合成一个%d级宝石的总价格是: %.1f 游戏币 (约 %.1f 人民币)",
+	                     targetLevel, totalCost, totalCostRMB);
 				bot.sendGroupMsg(groupId, Msg.builder().at(userId).text(result), false);
 			} else {
 				// 返回格式错误提醒
@@ -87,7 +94,12 @@ public class JewelryPlugin extends BotPlugin {
 
 				// 计算总价格
 				double totalCost = calculateTotalCostRule3(targetLevel, unitPrice);
-				String result = "合成一个" + targetLevel + "级星辉石的总价格是: " + totalCost;
+				
+				// 计算总价格对应的人民币
+	            double totalCostRMB = totalCost * EXCHANGE_RATE;
+	            
+				String result = String.format("合成一个%d级星辉石宝石的总价格是: %.1f 游戏币 (约 %.1f 人民币)",
+	                     targetLevel, totalCost, totalCostRMB);
 				bot.sendGroupMsg(groupId, Msg.builder().at(userId).text(result), false);
 			} else {
 				// 返回格式错误提醒
