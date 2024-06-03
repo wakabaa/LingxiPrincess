@@ -22,4 +22,10 @@ public interface SpiritMapper extends BaseMapper<SpiritEventEntity> {
      */
     List<SpiritEventEntity> selectSpiritEvent();
 
+    /**
+     * 查询本日活动
+     *
+     * @return 本日周活动
+     */
+    List<SpiritEventEntity> selectSpiritEventByDay();
 }

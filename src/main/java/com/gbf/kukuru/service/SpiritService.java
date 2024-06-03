@@ -17,4 +17,9 @@ public class SpiritService {
     	List<SpiritEventEntity> selectSpiritEvent = spiritMapper.selectSpiritEvent();
     	return selectSpiritEvent;
     }
+    
+    public List<SpiritEventEntity> selectSpiritEventByDay(){
+    	List<SpiritEventEntity> selectSpiritEvent = spiritMapper.selectSpiritEvent();
+    	return selectSpiritEvent;
+    }
 }
