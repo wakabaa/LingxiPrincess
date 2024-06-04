@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import net.lz1998.pbbot.bot.Bot;
 import net.lz1998.pbbot.bot.BotContainer;
 import net.lz1998.pbbot.utils.Msg;
+import onebot.OnebotApi.GetGroupListResp.Group;
+
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -91,8 +93,9 @@ public class SendMsgUtils {
                 if (groupCount > 0) {
                     log.info("群组计数获取成功，当前群组数量[{}]", groupCount);
                     //遍历群号
+                    List<Group> groupList = bot.getGroupList().getGroupList();
                     for (int j = 0; j < groupCount; j++) {
-                        groupIdList.add(bot.getGroupList().getGroup(j).getGroupId());
+                        groupIdList.add(groupList.get(j).getGroupId());
                     }
                     break;
                 } else {
