@@ -106,6 +106,14 @@ public class ScheduleService {
 				.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/106.gif"));
 		sendGroupMessage(message);
 	}
+	
+	@Scheduled(cron = "0 30 19 ? * THU")
+	public void fish() throws InterruptedException {
+
+		Msg message = Msg.builder().text("钓鱼大赛活动即将开始。")
+				.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/107.gif"));
+		sendGroupMessage(message);
+	}
 
 	@Scheduled(cron = "0 30 14 ? * SUN")
 	public void menpaichuangguan() throws InterruptedException {
@@ -215,7 +223,7 @@ public class ScheduleService {
     
 	public Msg generateReminderMessage(long daysToNextRefresh) {
 		if (daysToNextRefresh == REFRESH_INTERVAL_DAYS) {
-			return Msg.builder().text("副本已经刷新，少侠这周一定能拿到心仪的金砖和附魔宝珠把")
+			return Msg.builder().text("副本已经刷新，少侠这周一定能拿到心仪的金砖和附魔宝珠吧")
 					.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/50.gif"));
 		} else {
 			// 根据剩余天数定制消息内容

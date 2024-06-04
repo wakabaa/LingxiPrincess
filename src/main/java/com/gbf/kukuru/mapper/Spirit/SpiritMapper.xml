@@ -106,4 +106,16 @@
 		    type = 4 
 		    AND FIND_IN_SET((SELECT WEEK(CURRENT_DATE) - WEEK(DATE_SUB(CURRENT_DATE, INTERVAL DAYOFMONTH(CURRENT_DATE) - 1 DAY)) + 1 AS week_of_month), day_of_week) > 0
     </select>
+    <select id="selectSpiritShop" resultType="com.gbf.kukuru.entity.SpiritShopEntity">
+		select shop_id as shopId,type,description
+		from recommend_shop
+	</select>
+	
+	<insert id="addSpiritShop" parameterType="com.gbf.kukuru.entity.SpiritShopEntity">
+		insert into recommend_shop(shop_id,type,description) values(#{shopId}, #{type},#{description})
+	</insert>
+	
+	<delete id="deleteSpiritShop" parameterType="com.gbf.kukuru.entity.SpiritShopEntity">
+		delete from recommend_shop where shop_id = #{shopId}
+	</delete>
 </mapper>

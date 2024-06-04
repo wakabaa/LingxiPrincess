@@ -27,21 +27,9 @@ public class CommandUtils {
      * value: 指令注释
      */
     public static Map<String, String> commandMap = new LinkedHashMap<>() {{
-        put(CommandConstant.COMMAND_PCR_DIVINATION, "梦幻精灵");
-//        put(CommandConstant.COMMAND_ARCANA_DIVINATION, "塔罗牌占卜");
-//        put(CommandConstant.COMMAND_PHOENIX_WRIGHT, "逆转裁判图片生成(参数1 上半句; 参数2 下半句)");
-//        put(CommandConstant.COMMAND_GBF_COUNT_DOWN_UNITE_AND_FIGHT, "古战场倒计时");
-//        put(CommandConstant.COMMAND_GBF_SEARCH_MEMBER_LIST, "查询成员列表");
-//        put(CommandConstant.COMMAND_GBF_SEARCH_MEMBER_CONTRIBUTION, "查询成员贡献");
-//        put(CommandConstant.COMMAND_GBF_SEARCH_RANK_CONTRIBUTION, "查询个排档位");
-//        put(CommandConstant.COMMAND_GBF_WATCH_CONTRIBUTION, "监视我的贡献");
-//        put(CommandConstant.COMMAND_BILIBILI_ADD_LIVE_LISTENING, "监听直播");
-//        put(CommandConstant.COMMAND_BILIBILI_CANCEL_LIVE_LISTENING, "取消监听直播");
-//        put(CommandConstant.COMMAND_KAMIYU_IMAGE, "随机发送kamiyu语录");
-//        put(CommandConstant.COMMAND_WAKABA_IMAGE, "随机发送若叶语录");
-//        put(CommandConstant.COMMAND_CAT_IMAGE, "随机发送猫猫表情包");
-//        put(CommandConstant.COMMAND_YANGKUKU_IMAGE, "随机发送羊库库语录");
-//        put(CommandConstant.COMMAND_HELP, "显示当前指令列表");
+        put(CommandConstant.COMMAND_DREAM_JOURNEY_TO_THE_WEST, "梦幻精灵");
+        put(CommandConstant.COMMAND_GET_JEWELRY_PROCESSING, "宝石合成");
+        put(CommandConstant.COMMAND_GET_STAR_JEWELRY_PROCESSING, "星辉石合成");
     }};
 
     /**
