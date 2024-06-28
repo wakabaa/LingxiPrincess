@@ -9,6 +9,7 @@ spring:
       - com.gbf.kukuru.plugin.JewelryPlugin # 活动查询插件
       - com.gbf.kukuru.plugin.QueryEventsPlugin # 活动查询插件
       - com.gbf.kukuru.plugin.ShopPlugin # 店铺查询插件
+      - com.gbf.kukuru.plugin.ghostPlugin # 抓鬼辅助插件
       # 非指令文本触发
   #数据源配置
   datasource:

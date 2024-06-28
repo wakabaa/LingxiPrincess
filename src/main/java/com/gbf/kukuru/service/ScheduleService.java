@@ -228,10 +228,10 @@ public class ScheduleService {
 		} else {
 			// 根据剩余天数定制消息内容
 			if (daysToNextRefresh == 1) {
-				return Msg.builder().text("副本还差1天刷新了，记得做好准备！")
+				return Msg.builder().text("副本明天就解刷新了")
 						.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/51.gif"));
 			} else {
-				return Msg.builder().text(String.format("副本还差%d天刷新了，还有些时间可以利用！", daysToNextRefresh))
+				return Msg.builder().text(String.format("副本还差%d天刷新了，还有些时间可以摸鱼", daysToNextRefresh - 1))
 						.image(PathUtils.getRealPathFromResource("/static/img/baozi_old/99.gif"));
 			}
 		}

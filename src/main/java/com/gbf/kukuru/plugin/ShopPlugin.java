@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.gbf.kukuru.constant.CommandConstant;
-import com.gbf.kukuru.entity.SpiritEventEntity;
 import com.gbf.kukuru.entity.SpiritShopEntity;
 import com.gbf.kukuru.service.SpiritService;
 import com.gbf.kukuru.util.PathUtils;
