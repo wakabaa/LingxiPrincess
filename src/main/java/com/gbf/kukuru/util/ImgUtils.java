@@ -13,6 +13,9 @@ import org.jetbrains.skija.EncodedImageFormat;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -82,7 +85,7 @@ public class ImgUtils {
             FileUtil.mkdir(absolutImageStorePath);
             log.info("[图片工具]: 创建路径\"{}\"", absolutImageStorePath);
         }
-        java.nio.file.Files.write(java.nio.file.Path.of(realImagePath), imageBytes);
+        Files.write(Paths.get(realImagePath), imageBytes, StandardOpenOption.CREATE);
         log.info("[图片工具]: 保存图片({})", imageName);
         return realImagePath;
     }

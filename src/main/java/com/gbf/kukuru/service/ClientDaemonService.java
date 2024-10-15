@@ -1,24 +1,22 @@
 package com.gbf.kukuru.service;
 
-import cn.hutool.core.thread.ThreadUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.gbf.kukuru.dto.BotAccountDTO;
-import com.gbf.kukuru.entity.BotAccount;
-import com.gbf.kukuru.mapper.BotAccountMapper;
-import com.gbf.kukuru.util.PathUtils;
-import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import com.gbf.kukuru.dto.BotAccountDTO;
+import com.gbf.kukuru.util.PathUtils;
+
+import cn.hutool.core.thread.ThreadUtil;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 客户端守护进程 服务类
@@ -41,8 +39,6 @@ public class ClientDaemonService {
     @Value("${client.login-password}")
     private String loginPassword;
 
-    @Resource
-    private BotAccountMapper botAccountMapper;
     private final List<BotAccountDTO> botList = new ArrayList<>();
     private final boolean isWindows = PathUtils.isWindows();
 
@@ -52,20 +48,20 @@ public class ClientDaemonService {
     private void updateBotList() {
         int prevPort = this.clientPortStart + botList.size();
         int i = 0;
-        List<BotAccount> newBotList = botAccountMapper.selectList(Wrappers.emptyWrapper());
-        for (BotAccount newB : newBotList.stream()
-                .filter(b -> botList.stream().noneMatch(oldB -> Objects.equals(oldB.getQqAccount(), b.getQqAccount())))
-                .collect(Collectors.toList())) {
-            BotAccountDTO accountDAO = new BotAccountDTO();
-            accountDAO.setQqAccount(newB.getQqAccount());
-            accountDAO.setQqPassword(newB.getQqPassword());
-            accountDAO.setIsDisabled(newB.getIsDisabled());
-            accountDAO.setPort(prevPort + i);
-            accountDAO.setFailCount(0);
-            botList.add(accountDAO);
-            log.info("[客户端守护]: 发现新账号 QQ:" + accountDAO.getQqAccount() + " !");
-            i++;
-        }
+//        List<BotAccount> newBotList = botAccountMapper.selectList(Wrappers.emptyWrapper());
+//        for (BotAccount newB : newBotList.stream()
+//                .filter(b -> botList.stream().noneMatch(oldB -> Objects.equals(oldB.getQqAccount(), b.getQqAccount())))
+//                .collect(Collectors.toList())) {
+//            BotAccountDTO accountDAO = new BotAccountDTO();
+//            accountDAO.setQqAccount(newB.getQqAccount());
+//            accountDAO.setQqPassword(newB.getQqPassword());
+//            accountDAO.setIsDisabled(newB.getIsDisabled());
+//            accountDAO.setPort(prevPort + i);
+//            accountDAO.setFailCount(0);
+//            botList.add(accountDAO);
+//            log.info("[客户端守护]: 发现新账号 QQ:" + accountDAO.getQqAccount() + " !");
+//            i++;
+//        }
     }
 
     @SneakyThrows

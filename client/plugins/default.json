@@ -1,8 +1,9 @@
 {
     "disabled": false,
-    "json": false,
+    "json": true,
+    "protocol": 1,
     "urls": [
-        "ws://localhost:8081/ws/cq/"
+        "ws://localhost:5000/ws/shiro"
     ],
     "event_filter": [],
     "api_filter": [],

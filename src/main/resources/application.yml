@@ -1,17 +1,5 @@
 spring:
   #机器人配置
-  bot:
-    plugin-list: # 配置插件列表（有序），如果插件返回0，继续执行剩余插件，如果插件返回1，终止剩余插件执行
-      # 指令文本触发
-      - com.gbf.kukuru.plugin.LogPlugin # 日志插件
-      - com.gbf.kukuru.plugin.CommandHintPlugin # 指令提示
-      - com.gbf.kukuru.plugin.SpiritPlugin # 梦幻精灵插件
-      - com.gbf.kukuru.plugin.JewelryPlugin # 活动查询插件
-      - com.gbf.kukuru.plugin.QueryEventsPlugin # 活动查询插件
-      - com.gbf.kukuru.plugin.ShopPlugin # 店铺查询插件
-      - com.gbf.kukuru.plugin.ghostPlugin # 抓鬼辅助插件
-      # 非指令文本触发
-  #数据源配置
   datasource:
     name: kukuruDB
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -50,8 +38,18 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 server:
-  port: 8081
-
+  port: 5000
+shiro:
+  ws:
+    server:
+      url: /ws/shiro
+      enable: true
+    client:
+      enable: false
+      url: ws://localhost:5000
+      reconnect-interval: 5000
+  debug: false
+      
 logging:
   file:
     name: kukuru_bot.log
