@@ -72,36 +72,40 @@ public class SpiritPlugin {
 	@PrivateMessageHandler
 	public void onPrivateMessage(@NotNull Bot bot, @NotNull PrivateMessageEvent event) {
 		String msg = event.getRawMessage();
-		try {
-			String encodedQuestion = URLEncoder.encode(msg, StandardCharsets.UTF_8.toString());
-			String apiUrl = spiritApi.replace("{{question}}", encodedQuestion);
-			URL url = new URL(apiUrl);
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.setRequestMethod("GET");
-			connection.setConnectTimeout(5000);
-			connection.setReadTimeout(5000);
-			connection.connect();
+		if (msg.startsWith("梦幻精灵")) {
+			String question = msg.replace("梦幻精灵", "").trim();
+			try {
+				String encodedQuestion = URLEncoder.encode(question, StandardCharsets.UTF_8.toString());
+				String apiUrl = spiritApi.replace("{{question}}", encodedQuestion);
+				URL url = new URL(apiUrl);
+				HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+				connection.setRequestMethod("GET");
+				connection.setConnectTimeout(5000);
+				connection.setReadTimeout(5000);
+				connection.connect();
 
-			int responseCode = connection.getResponseCode();
-			if (responseCode == HttpURLConnection.HTTP_OK) {
-				StringBuilder response = new StringBuilder();
-				try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
-					String line;
-					while ((line = reader.readLine()) != null) {
-						response.append(line);
+				int responseCode = connection.getResponseCode();
+				if (responseCode == HttpURLConnection.HTTP_OK) {
+					StringBuilder response = new StringBuilder();
+					try (BufferedReader reader = new BufferedReader(
+							new InputStreamReader(connection.getInputStream()))) {
+						String line;
+						while ((line = reader.readLine()) != null) {
+							response.append(line);
+						}
 					}
-				}
-				String answer = formatResponse(cleanHtml(response.toString()));
-				// 构建消息
-		        String sendMsg = MsgUtils.builder().text(answer).build();
-		        // 发送私聊消息
-		        bot.sendPrivateMsg(event.getUserId(), sendMsg, false);
+					String answer = formatResponse(cleanHtml(response.toString()));
+					// 构建消息
+					String sendMsg = MsgUtils.builder().text(answer).build();
+					// 发送私聊消息
+					bot.sendPrivateMsg(event.getUserId(), sendMsg, false);
 
-			} else {
-				throw new Exception("HTTP GET request failed with response code: " + responseCode);
+				} else {
+					throw new Exception("HTTP GET request failed with response code: " + responseCode);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 

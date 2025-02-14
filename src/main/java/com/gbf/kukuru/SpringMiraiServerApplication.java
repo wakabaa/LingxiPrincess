@@ -7,7 +7,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAspectJAutoProxy
 @SpringBootApplication
-@MapperScan("com.gbf.kukuru")
+@MapperScan("com.gbf.kukuru.mapper")
 @EnableScheduling
 public class SpringMiraiServerApplication {
 

@@ -1,126 +1,104 @@
 package com.gbf.kukuru.plugin;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Random;
+
+import javax.imageio.ImageIO;
+
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Component;
 
+import com.mikuac.shiro.annotation.GroupMessageHandler;
+import com.mikuac.shiro.annotation.MessageHandlerFilter;
+import com.mikuac.shiro.annotation.common.Shiro;
+import com.mikuac.shiro.common.utils.MsgUtils;
+import com.mikuac.shiro.core.Bot;
 import com.mikuac.shiro.core.BotPlugin;
+import com.mikuac.shiro.dto.action.common.ActionList;
+import com.mikuac.shiro.dto.action.response.GroupMemberInfoResp;
+import com.mikuac.shiro.dto.event.message.GroupMessageEvent;
 
+@Shiro
 @Component
 public class ChatPlugin extends BotPlugin {
 
-//    @Resource
-//    private RobotService robotService;
-//    @Resource
-//    private UserService userService;
+	String avatarPath = "http://q.qlogo.cn/headimg_dl?dst_uin=userId&spec=200&img_type=jpg";
+	String comPath = this.getClass().getResource("/").getPath() + "/static/img/todaywaifu/output.png";
+	
+	@GroupMessageHandler
+	@MessageHandlerFilter(cmd = "今日老婆")
+	public int onGroupMessage(@NotNull Bot bot, GroupMessageEvent event) {
+//		// 获取当前用户QQ号
+//		Long userId = event.getUserId();
+//		Long groupId = event.getGroupId();
+//		// 获取当前群QQ号
+//		ActionList<GroupMemberInfoResp> groupMemberList = bot.getGroupMemberList(groupId, true);
 //
-//    @Override
-//    public int onPrivateMessage(@NotNull Bot bot, @NotNull OnebotEvent.PrivateMessageEvent event) {
-//        // 这里展示了event消息链的用法. List里面可能是 at -> text -> image -> face -> text 形式, 根据元素类型组成 List。
-//        // List 每一个元素 有type(String)和data(Map<String, String>)，type 表示元素是什么, data 表示元素的具体数据，如at qq，image url，face id
-//        List<OnebotBase.Message> messageChain = event.getMessageList();
-//        if (messageChain.size() > 0) {
-//            OnebotBase.Message message = messageChain.get(0);
-//            if (message.getType().equals("text")) {
-//                String text = message.getDataMap().get("text");
-//                if ("hello".equals(text)) {
-//                    bot.sendPrivateMsg(event.getUserId(), "hi", false);
-//                }
-//            }
-//        }
-//        return MESSAGE_IGNORE;
-//    }
+//		// 随机抽选一名幸运群友
+//		Random random = new Random();
+//		List<GroupMemberInfoResp> data = groupMemberList.getData();
+//		GroupMemberInfoResp groupMemberInfoResp = data.get(random.nextInt(data.size()));
+//		Long userId2 = groupMemberInfoResp.getUserId();
 //
-//    @Override
-//    public int onGroupMessage(@NotNull Bot bot, @NotNull OnebotEvent.GroupMessageEvent event) {
-//        long groupId = event.getGroupId();
-//        String text = event.getRawMessage();
-//        if (text.contains(String.valueOf(bot.getSelfId()))) {
-//            text = text.replace("<at qq=\"" + bot.getSelfId() + "\"/>", "");
-//            String finalResult = robotService.answer(text).getContent()
-//                    .replace("菲菲", "ククル")
-//                    .replace("{br}", "\n");
-//            bot.sendGroupMsg(groupId, finalResult, false);
-//            return MESSAGE_BLOCK;
-//        } else if (text.equals("?")) {
-//            Random random = new Random();
-//            if (random.nextInt(3) == 0) {
-//                bot.sendGroupMsg(groupId, "¿", false);
-//            }
-//            return MESSAGE_BLOCK;
-//        }
+//		// 获取当前用户QQ头像
+//		BufferedImage avatar1 = downloadImage(avatarPath.replace("userId", String.valueOf(userId)));
 //
-//        return MESSAGE_IGNORE;
-//    }
+//		// 获取幸运群友QQ头像
+//		BufferedImage avatar2 = downloadImage(avatarPath.replace("userId", String.valueOf(userId2)));
 //
-//    /**
-//     * 群成员减少时调用此方法(有人退群/被踢，事件已发生)
-//     *
-//     * @param bot   bot对象
-//     * @param event 时间内容
-//     * @return 结束
-//     */
-//    @Override
-//    public int onGroupDecreaseNotice(@NotNull Bot bot, @NotNull OnebotEvent.GroupDecreaseNoticeEvent event) {
-//        long groupId = event.getGroupId();
-//        long userId = event.getUserId();
-//        if (userId == bot.getSelfId()) {
-//            /* 不处理机器人自身的退群消息 */
-//            return MESSAGE_BLOCK;
-//        }
-//        long time = event.getTime();
-//        String nickName = userService.checkhasNickName(userId);
-//        if (!StringUtils.isEmpty(nickName)) {
-//            String msg = "握草 " + nickName + "退群了：" + groupId;
-//            bot.sendGroupMsg(groupId, msg, false);
-//            return MESSAGE_BLOCK;
-//        }
-//        String msg = "时间：" + time + "QQ：" + userId + "退出了群组：" + groupId;
-//        bot.sendGroupMsg(groupId, msg, false);
-//        return MESSAGE_BLOCK;
-//    }
+//		BufferedImage canvas = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
+//		Graphics2D g2d = canvas.createGraphics();
 //
-//    /**
-//     * 群成员增加时调用此方法(有人进群，事件已发生)
-//     *
-//     * @param bot   bot对象
-//     * @param event 时间内容
-//     * @return 结束
-//     */
-//    @Override
-//    public int onGroupIncreaseNotice(@NotNull Bot bot, @NotNull OnebotEvent.GroupIncreaseNoticeEvent event) {
-//        long groupId = event.getGroupId();
-//        long userId = event.getUserId();
-//        if (userId == bot.getSelfId()) {
-//            /* 不处理机器人自身的入群消息 */
-//            return MESSAGE_BLOCK;
-//        }
-//        String msg = "QQ：" + userId + "加入了群组：" + groupId;
-//        bot.sendGroupMsg(groupId, msg, false);
-//        return MESSAGE_BLOCK;
-//    }
+//		// 绘制背景
+//		g2d.setColor(Color.PINK);
+//		g2d.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 //
-//    /**
-//     * 成员被禁言事件
-//     *
-//     * @param bot   bot对象
-//     * @param event 时间内容
-//     * @return 结束
-//     */
-//    @Override
-//    public int onGroupBanNotice(@NotNull Bot bot, @NotNull OnebotEvent.GroupBanNoticeEvent event) {
-//        long groupId = event.getGroupId();
-//        long userId = event.getUserId();
-//        if (userId == bot.getSelfId()) {
-//            /* 不处理机器人自身的禁言消息 */
-//            return MESSAGE_BLOCK;
-//        }
-//        String nickName = userService.checkhasNickName(userId);
-//        if (StrUtil.isNotBlank(nickName)) {
-//            String msg = nickName + "被禁言了    笑死";
-//            bot.sendGroupMsg(groupId, msg, false);
-//            return MESSAGE_BLOCK;
-//        }
-//        String msg = "用户" + userId + "被禁言";
-//        bot.sendGroupMsg(groupId, msg, false);
-//        return MESSAGE_BLOCK;
-//    }
+//		// 绘制头像
+//		g2d.drawImage(avatar1, 0, 0, 120, 120, null);
+//		g2d.drawImage(avatar2, 80, 80, 120, 120, null);
+//
+//		// 保存结果图像
+//		g2d.dispose();
+//		try {
+//			ImageIO.write(canvas, "png", new File(comPath));
+//			System.out.println("图像已保存为 output.png");
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		// 构建消息
+//		String sendMsg = MsgUtils.builder().img(comPath).at(userId).build();
+//		// 发送私聊消息
+//		bot.sendGroupMsg(groupId, sendMsg, false);
+		return MESSAGE_BLOCK;
+	}
+
+	private static BufferedImage downloadImage(String url) {
+		try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+			HttpGet request = new HttpGet(url);
+			try (CloseableHttpResponse response = httpClient.execute(request)) {
+				org.apache.http.HttpEntity entity = response.getEntity();
+				if (entity != null) {
+					try (InputStream inputStream = entity.getContent()) {
+						return ImageIO.read(inputStream);
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
